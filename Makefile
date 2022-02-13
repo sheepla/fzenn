@@ -13,7 +13,7 @@ fmt:
 
 .PHONY: lint
 lint:
-	staticcheck
+	staticcheck ./...
 
 .PHONY: test
 test:
