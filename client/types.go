@@ -1,5 +1,7 @@
 package client
 
+import "time"
+
 type Trending struct {
 	DailyBooks []struct {
 		CoverImageSmallURL  string `json:"coverImageSmallUrl"`
@@ -127,9 +129,9 @@ type ArticleList struct {
 	Articles []struct {
 		ArticleType         string      `json:"articleType"`
 		BodyLettersCount    int64       `json:"bodyLettersCount"`
-		BodyUpdatedAt       string      `json:"bodyUpdatedAt"`
+		BodyUpdatedAt       time.Time   `json:"bodyUpdatedAt"`
 		CommentsCount       int64       `json:"commentsCount"`
-		CreatedAt           string      `json:"createdAt"`
+		CreatedAt           time.Time   `json:"createdAt"`
 		Emoji               string      `json:"emoji"`
 		ID                  int64       `json:"id"`
 		IsSuspendingPrivate bool        `json:"isSuspendingPrivate"`
@@ -137,10 +139,10 @@ type ArticleList struct {
 		PostType            string      `json:"postType"`
 		Publication         interface{} `json:"publication"`
 		Published           bool        `json:"published"`
-		PublishedAt         string      `json:"publishedAt"`
+		PublishedAt         time.Time   `json:"publishedAt"`
 		ReadingTime         int64       `json:"readingTime"`
 		Slug                string      `json:"slug"`
-		SourceRepoUpdatedAt string      `json:"sourceRepoUpdatedAt"`
+		SourceRepoUpdatedAt time.Time   `json:"sourceRepoUpdatedAt"`
 		Title               string      `json:"title"`
 		Topics              []struct {
 			DisplayName   string `json:"displayName"`
@@ -149,7 +151,7 @@ type ArticleList struct {
 			Name          string `json:"name"`
 			TaggingsCount int64  `json:"taggingsCount"`
 		} `json:"topics"`
-		UpdatedAt string `json:"updatedAt"`
+		UpdatedAt time.Time `json:"updatedAt"`
 		User      struct {
 			AvatarSmallURL string `json:"avatarSmallUrl"`
 			ID             int64  `json:"id"`
