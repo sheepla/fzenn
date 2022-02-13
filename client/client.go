@@ -12,7 +12,9 @@ func newURL(urlPath string) string {
 	u := &url.URL{}
 	u.Scheme = "https"
 	u.Host = "zenn-api.deno.dev"
-	u.Path = urlPath
+	if urlPath != "" {
+		u.Path = urlPath
+	}
 	return u.String()
 }
 
@@ -30,6 +32,19 @@ func fetch(url string) (*[]byte, error) {
 	}
 
 	return &b, err
+}
+
+func FetchTrending() (*Trending, error) {
+	b, err := fetch(newURL(""))
+	if err != nil {
+		return nil, err
+	}
+
+	var t Trending
+	if err := json.Unmarshal(*b, &t); err != nil {
+		return nil, err
+	}
+	return &t, nil
 }
 
 func FetchArticleList() (*ArticleList, error) {

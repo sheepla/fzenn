@@ -1,5 +1,128 @@
 package client
 
+type Trending struct {
+	DailyBooks []struct {
+		CoverImageSmallURL  string `json:"coverImageSmallUrl"`
+		CreatedAt           string `json:"createdAt"`
+		ID                  int64  `json:"id"`
+		IsSuspendingPrivate bool   `json:"isSuspendingPrivate"`
+		LikedCount          int64  `json:"likedCount"`
+		PostType            string `json:"postType"`
+		Price               int64  `json:"price"`
+		Published           bool   `json:"published"`
+		PublishedAt         string `json:"publishedAt"`
+		Slug                string `json:"slug"`
+		SourceRepoUpdatedAt string `json:"sourceRepoUpdatedAt"`
+		Title               string `json:"title"`
+		User                struct {
+			AvatarSmallURL string `json:"avatarSmallUrl"`
+			ID             int64  `json:"id"`
+			Name           string `json:"name"`
+			Username       string `json:"username"`
+		} `json:"user"`
+	} `json:"dailyBooks"`
+	DailyIdeaArticles []struct {
+		ArticleType         string      `json:"articleType"`
+		BodyLettersCount    int64       `json:"bodyLettersCount"`
+		BodyUpdatedAt       string      `json:"bodyUpdatedAt"`
+		CommentsCount       int64       `json:"commentsCount"`
+		CreatedAt           string      `json:"createdAt"`
+		Emoji               string      `json:"emoji"`
+		ID                  int64       `json:"id"`
+		IsSuspendingPrivate bool        `json:"isSuspendingPrivate"`
+		LikedCount          int64       `json:"likedCount"`
+		PostType            string      `json:"postType"`
+		Publication         interface{} `json:"publication"`
+		Published           bool        `json:"published"`
+		PublishedAt         string      `json:"publishedAt"`
+		ReadingTime         int64       `json:"readingTime"`
+		Slug                string      `json:"slug"`
+		SourceRepoUpdatedAt string      `json:"sourceRepoUpdatedAt"`
+		Title               string      `json:"title"`
+		Topics              []struct {
+			DisplayName   string `json:"displayName"`
+			ID            int64  `json:"id"`
+			ImageURL      string `json:"imageUrl"`
+			Name          string `json:"name"`
+			TaggingsCount int64  `json:"taggingsCount"`
+		} `json:"topics"`
+		UpdatedAt string `json:"updatedAt"`
+		User      struct {
+			AvatarSmallURL string `json:"avatarSmallUrl"`
+			ID             int64  `json:"id"`
+			Name           string `json:"name"`
+			Username       string `json:"username"`
+		} `json:"user"`
+	} `json:"dailyIdeaArticles"`
+	DailyTechArticles []struct {
+		ArticleType         string      `json:"articleType"`
+		BodyLettersCount    int64       `json:"bodyLettersCount"`
+		BodyUpdatedAt       string      `json:"bodyUpdatedAt"`
+		CommentsCount       int64       `json:"commentsCount"`
+		CreatedAt           string      `json:"createdAt"`
+		Emoji               string      `json:"emoji"`
+		ID                  int64       `json:"id"`
+		IsSuspendingPrivate bool        `json:"isSuspendingPrivate"`
+		LikedCount          int64       `json:"likedCount"`
+		PostType            string      `json:"postType"`
+		Publication         interface{} `json:"publication"`
+		Published           bool        `json:"published"`
+		PublishedAt         string      `json:"publishedAt"`
+		ReadingTime         int64       `json:"readingTime"`
+		Slug                string      `json:"slug"`
+		SourceRepoUpdatedAt string      `json:"sourceRepoUpdatedAt"`
+		Title               string      `json:"title"`
+		Topics              []struct {
+			DisplayName   string `json:"displayName"`
+			ID            int64  `json:"id"`
+			ImageURL      string `json:"imageUrl"`
+			Name          string `json:"name"`
+			TaggingsCount int64  `json:"taggingsCount"`
+		} `json:"topics"`
+		UpdatedAt string `json:"updatedAt"`
+		User      struct {
+			AvatarSmallURL string `json:"avatarSmallUrl"`
+			ID             int64  `json:"id"`
+			Name           string `json:"name"`
+			Username       string `json:"username"`
+		} `json:"user"`
+	} `json:"dailyTechArticles"`
+	FeaturedArticles []struct {
+		ArticleType         string      `json:"articleType"`
+		BodyLettersCount    int64       `json:"bodyLettersCount"`
+		BodyUpdatedAt       string      `json:"bodyUpdatedAt"`
+		CommentsCount       int64       `json:"commentsCount"`
+		CreatedAt           string      `json:"createdAt"`
+		Emoji               string      `json:"emoji"`
+		ID                  int64       `json:"id"`
+		IsSuspendingPrivate bool        `json:"isSuspendingPrivate"`
+		LikedCount          int64       `json:"likedCount"`
+		PostType            string      `json:"postType"`
+		Publication         interface{} `json:"publication"`
+		Published           bool        `json:"published"`
+		PublishedAt         string      `json:"publishedAt"`
+		ReadingTime         int64       `json:"readingTime"`
+		Slug                string      `json:"slug"`
+		SourceRepoUpdatedAt string      `json:"sourceRepoUpdatedAt"`
+		Title               string      `json:"title"`
+		Topics              []struct {
+			DisplayName   string `json:"displayName"`
+			ID            int64  `json:"id"`
+			ImageURL      string `json:"imageUrl"`
+			Name          string `json:"name"`
+			TaggingsCount int64  `json:"taggingsCount"`
+		} `json:"topics"`
+		UpdatedAt string `json:"updatedAt"`
+		User      struct {
+			AvatarSmallURL string `json:"avatarSmallUrl"`
+			ID             int64  `json:"id"`
+			Name           string `json:"name"`
+			Username       string `json:"username"`
+		} `json:"user"`
+	} `json:"featuredArticles"`
+	Query struct{} `json:"query"`
+}
+
 type ArticleList struct {
 	Articles []struct {
 		ArticleType         string      `json:"articleType"`
