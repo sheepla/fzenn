@@ -60,6 +60,19 @@ func FetchArticleList() (*ArticleList, error) {
 	return &a, nil
 }
 
+func FetchBookList() (*BookList, error) {
+	b, err := fetch(newURL("books"))
+	if err != nil {
+		return nil, err
+	}
+
+	var books BookList
+	if err := json.Unmarshal(*b, &books); err != nil {
+		return nil, err
+	}
+	return &books, nil
+}
+
 func FetchUser(name string) (*User, error) {
 	b, err := fetch(newURL(name))
 	if err != nil {

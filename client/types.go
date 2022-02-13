@@ -162,6 +162,32 @@ type ArticleList struct {
 	Query       struct{} `json:"query"`
 }
 
+type BookList struct {
+	Books []struct {
+		CoverImageSmallURL  string `json:"coverImageSmallUrl"`
+		CreatedAt           string `json:"createdAt"`
+		ID                  int64  `json:"id"`
+		IsSuspendingPrivate bool   `json:"isSuspendingPrivate"`
+		LikedCount          int64  `json:"likedCount"`
+		PostType            string `json:"postType"`
+		Price               int64  `json:"price"`
+		Published           bool   `json:"published"`
+		PublishedAt         string `json:"publishedAt"`
+		Slug                string `json:"slug"`
+		SourceRepoUpdatedAt string `json:"sourceRepoUpdatedAt"`
+		Title               string `json:"title"`
+		User                struct {
+			AvatarSmallURL string `json:"avatarSmallUrl"`
+			ID             int64  `json:"id"`
+			Name           string `json:"name"`
+			Username       string `json:"username"`
+		} `json:"user"`
+	} `json:"books"`
+	CurrentPage int64    `json:"currentPage"`
+	NextPage    int64    `json:"nextPage"`
+	Query       struct{} `json:"query"`
+}
+
 type User struct {
 	ActiveItemType string `json:"activeItemType"`
 	Articles       []struct {
