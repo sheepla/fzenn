@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"path"
 
-	humanize "github.com/dustin/go-humanize"
+	// humanize "github.com/dustin/go-humanize"
+	"github.com/dustin/go-humanize"
 	"github.com/ktr0731/go-fuzzyfinder"
 	"github.com/sheepla/fzenn/client"
 	"github.com/spf13/cobra"
@@ -73,7 +74,7 @@ func find(a *client.ArticleList) ([]int, error) {
 
 func preview(i, w, h int, a *client.ArticleList) string {
 	return fmt.Sprintf(
-		"[%s/%s]\n\n%s %s\n\n  by %s (@%s)\n\n  ♥  %d 💬 %d\n  %d min to read\n\n  created at %s, updated at %s\n\n",
+        "[%s/%s]\n\n%s %s \n\n%s (@%s)\n\n%d likes, %d comments\n\n%d min to read\n%s",
 		a.Articles[i].ArticleType,
 		a.Articles[i].PostType,
 		a.Articles[i].Emoji,
@@ -83,8 +84,7 @@ func preview(i, w, h int, a *client.ArticleList) string {
 		a.Articles[i].LikedCount,
 		a.Articles[i].CommentsCount,
 		a.Articles[i].ReadingTime,
-		humanize.Time(a.Articles[i].CreatedAt),
-		humanize.Time(a.Articles[i].UpdatedAt),
+		humanize.Time(a.Articles[i].PublishedAt),
 	)
 }
 

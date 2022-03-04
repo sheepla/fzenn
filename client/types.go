@@ -1,6 +1,8 @@
 package client
 
-import "time"
+import (
+    "time"
+)
 
 type Trending struct {
 	DailyBooks []struct {
@@ -129,9 +131,8 @@ type ArticleList struct {
 	Articles []struct {
 		ArticleType         string      `json:"articleType"`
 		BodyLettersCount    int64       `json:"bodyLettersCount"`
-		BodyUpdatedAt       time.Time   `json:"bodyUpdatedAt"`
+		BodyUpdatedAt       time.Time      `json:"bodyUpdatedAt"`
 		CommentsCount       int64       `json:"commentsCount"`
-		CreatedAt           time.Time   `json:"createdAt"`
 		Emoji               string      `json:"emoji"`
 		ID                  int64       `json:"id"`
 		IsSuspendingPrivate bool        `json:"isSuspendingPrivate"`
@@ -139,10 +140,10 @@ type ArticleList struct {
 		PostType            string      `json:"postType"`
 		Publication         interface{} `json:"publication"`
 		Published           bool        `json:"published"`
-		PublishedAt         time.Time   `json:"publishedAt"`
+		PublishedAt         time.Time      `json:"publishedAt"`
 		ReadingTime         int64       `json:"readingTime"`
 		Slug                string      `json:"slug"`
-		SourceRepoUpdatedAt time.Time   `json:"sourceRepoUpdatedAt"`
+		SourceRepoUpdatedAt time.Time      `json:"sourceRepoUpdatedAt"`
 		Title               string      `json:"title"`
 		Topics              []struct {
 			DisplayName   string `json:"displayName"`
@@ -151,8 +152,7 @@ type ArticleList struct {
 			Name          string `json:"name"`
 			TaggingsCount int64  `json:"taggingsCount"`
 		} `json:"topics"`
-		UpdatedAt time.Time `json:"updatedAt"`
-		User      struct {
+		User struct {
 			AvatarSmallURL string `json:"avatarSmallUrl"`
 			ID             int64  `json:"id"`
 			Name           string `json:"name"`
