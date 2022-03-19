@@ -16,23 +16,23 @@ const (
 	baseURL = "https://zenn.dev"
 )
 
-var articlesCmd = &cobra.Command{
-	Use:   "articles",
-	Short: "Search articles",
+var latestCmd = &cobra.Command{
+	Use:   "latest",
+	Short: "Search latest",
 	Long:  ``,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 0 {
 			return fmt.Errorf("too many arguments")
 		}
-		return articlesMain()
+		return latestMain()
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(articlesCmd)
+	rootCmd.AddCommand(latestCmd)
 }
 
-func articlesMain() error {
+func latestMain() error {
 	a, err := client.FetchArticleList()
 	if err != nil {
 		return err
@@ -74,7 +74,7 @@ func find(a *client.ArticleList) ([]int, error) {
 
 func preview(i, w, h int, a *client.ArticleList) string {
 	return fmt.Sprintf(
-        "[%s/%s]\n\n%s %s \n\n%s (@%s)\n\n%d likes, %d comments\n\n%d min to read\n%s",
+		"[%s/%s]\n\n%s %s \n\n%s (@%s)\n\n%d likes, %d comments\n\n%d min to read\n%s",
 		a.Articles[i].ArticleType,
 		a.Articles[i].PostType,
 		a.Articles[i].Emoji,
